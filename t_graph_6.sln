@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "t_graph_6", "t_graph_6\t_graph_6.vcxproj", "{3D451202-BD2E-4853-9C84-0FEE75487355}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D451202-BD2E-4853-9C84-0FEE75487355}.Debug|x64.ActiveCfg = Debug|x64
+		{3D451202-BD2E-4853-9C84-0FEE75487355}.Debug|x64.Build.0 = Debug|x64
+		{3D451202-BD2E-4853-9C84-0FEE75487355}.Debug|x86.ActiveCfg = Debug|Win32
+		{3D451202-BD2E-4853-9C84-0FEE75487355}.Debug|x86.Build.0 = Debug|Win32
+		{3D451202-BD2E-4853-9C84-0FEE75487355}.Release|x64.ActiveCfg = Release|x64
+		{3D451202-BD2E-4853-9C84-0FEE75487355}.Release|x64.Build.0 = Release|x64
+		{3D451202-BD2E-4853-9C84-0FEE75487355}.Release|x86.ActiveCfg = Release|Win32
+		{3D451202-BD2E-4853-9C84-0FEE75487355}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {66281BE8-B3D4-41EF-8096-0A11F0BFCEA2}
+	EndGlobalSection
+EndGlobal
