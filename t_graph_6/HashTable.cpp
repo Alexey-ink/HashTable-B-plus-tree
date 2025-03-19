@@ -1,9 +1,6 @@
 #include "HashTable.h"
 #include <locale>
 
-static const int NOT_FOUND = -1;
-static const double REHASH_THRESHOLD;
-
 bool isAlphaNum(char c) {
 
 	if (std::isalnum(static_cast<unsigned char>(c))) {
@@ -22,9 +19,14 @@ HashTable::HashTable(int size) {
 
 void HashTable::insert(const string& key) {
 
+	if (total_elements >= MAX_WORDS) {
+		cout << "Словарь переполнен!\n" << endl;
+		return;
+	}
+
 	int index = hashFunction(key);
 
-	if (search(key) == NOT_FOUND) {
+	if (NOT_FOUND == search(key)) {
 
 		table[index].insert(key);
 		total_elements++;

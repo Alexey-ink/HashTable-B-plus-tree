@@ -33,6 +33,11 @@ string checkingString() {
     while (true) {
         getline(cin, str);
 
+        if (str.empty()) {
+            cout << "Ошибка! Введена пустая строка. Пожалуйста, введите слово." << endl;
+            continue; 
+        }
+
         bool valid = true;
         for (char c : str) {
             if (isspace(c) || !((c >= 'А' && c <= 'Я') || (c >= 'а' && c <= 'я'))) {
