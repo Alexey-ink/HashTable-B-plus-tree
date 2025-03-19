@@ -10,6 +10,7 @@
 #include "check.h"
 
 
+const int MAX_MENU_ITEMS = 12;
 using namespace std;
 
 int main() {
@@ -46,13 +47,13 @@ int main() {
 
         cout << "\n Выберите действие: ";
 
-        int b = checkingInput(12);
+        int menuChoice = checkingInput(MAX_MENU_ITEMS);
         string word;
         string path;
         bool flag;
         int index;
 
-        switch (b) {
+        switch (menuChoice) {
 
         case 1:
 

@@ -12,6 +12,11 @@ using namespace std;
 class HashTable {
 
 private: 
+
+	static const int NOT_FOUND = -1;
+	static const double REHASH_THRESHOLD;
+	static const int MAX_WORDS = 10000;
+
 	LinkedList* table;
 
 	int total_buckets;

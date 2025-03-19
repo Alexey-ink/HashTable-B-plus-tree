@@ -1,6 +1,9 @@
 #include "HashTable.h"
 #include <locale>
 
+static const int NOT_FOUND = -1;
+static const double REHASH_THRESHOLD;
+
 bool isAlphaNum(char c) {
 
 	if (std::isalnum(static_cast<unsigned char>(c))) {
@@ -13,6 +16,7 @@ bool isAlphaNum(char c) {
 
 HashTable::HashTable(int size) {
 	total_buckets = size;
+	fillability = 0.0;
 	table = new LinkedList[total_buckets];
 }
 
@@ -20,14 +24,14 @@ void HashTable::insert(const string& key) {
 
 	int index = hashFunction(key);
 
-	if (search(key) == -1) {
+	if (search(key) == NOT_FOUND) {
 
 		table[index].insert(key);
 		total_elements++;
 		fillability = static_cast<double>(total_elements) / static_cast<double>(total_buckets);
 	}
 	
-	if (fillability >= 0.9) {
+	if (fillability >= REHASH_THRESHOLD) {
 		rehash();
 	}
 }
@@ -47,7 +51,7 @@ int HashTable::search(const string& key) {
 
 	int index = hashFunction(key);
 	if (table[index].search(key)) return index;
-	else return -1;
+	else return NOT_FOUND;
 
 }
 
