@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="B-plus-tree.cpp" />
     <ClCompile Include="HashTable.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="t_graph_6.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="B-plus-tree.h" />
     <ClInclude Include="check.h" />
     <ClInclude Include="HashTable.h" />
     <ClInclude Include="LinkedList.h" />

@@ -20,7 +20,7 @@ void HashTable::insert(const string& key) {
 
 	int index = hashFunction(key);
 
-	if (!search(key)) {
+	if (search(key) == -1) {
 
 		table[index].insert(key);
 		total_elements++;
@@ -43,11 +43,11 @@ void HashTable::remove(const string& key) {
 	else cout << "\n Элемент не найден! " << endl;
 }
 
-bool HashTable::search(const string& key) {
+int HashTable::search(const string& key) {
 
 	int index = hashFunction(key);
-	if (table[index].search(key)) return true;
-	else return false;
+	if (table[index].search(key)) return index;
+	else return -1;
 
 }
 
@@ -81,17 +81,14 @@ unsigned int HashTable::hashFunction(const string& key) {
 	for (char c : key) {
 		hash_value = (hash_value * a + static_cast<unsigned int>(c)) % total_buckets;
 	}
-
+		
 	return hash_value;
-
 }
-
+		
 
 void HashTable::insertFromFile(const string& filename) {
 	
 	ifstream file(filename);
-
-	cout << "Fillability: " << fillability << endl;
 
 	if (!file.is_open()) {
 		cout << "Ошибка! Не удалось открыть файл!" << filename << endl;
@@ -118,15 +115,16 @@ void HashTable::insertFromFile(const string& filename) {
 
 	}
 
-	cout << "Количество элементов: " << total_elements << endl;
-	cout << "Fillability: " << fillability << endl;
+	cout << "Слова успешно добавлены! " << endl << endl;
 
+	// cout << "Количество элементов: " << total_elements << endl;
+	// cout << "Коэф. заполняемости хэш-таблицы: " << fillability << endl;
 }
 
 
 void HashTable::rehash() {
 
-	cout << "Пересоздаем таблицу..." << endl;
+	// cout << "Пересоздаем таблицу..." << endl;
 
 	int old_buckets = total_buckets;
 
@@ -138,7 +136,7 @@ void HashTable::rehash() {
 
 	for (int i = 0; i < old_buckets; i++) {
 
-		Node* temp = old_table[i].getHead();
+		ListNode* temp = old_table[i].getHead();
 
 		while (temp != nullptr) {
 			insert(temp->data);
@@ -162,6 +160,10 @@ void HashTable::clear() {
 
 	cout << "Хэш-таблица полностью очищена!" << endl;
 
+}
+
+int HashTable::getCount() {
+	return total_elements;
 }
 
 

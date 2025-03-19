@@ -8,12 +8,13 @@ void clear() {
 }
 
 int checkingInput(int max) {
+
     int n;
 
     while (true) {
         cin >> n;
         // Проверяем, является ли введенное значение целым числом и находится в допустимых пределах
-        if (cin.fail() || n <= 0 || n > max || cin.peek() != '\n') {
+        if (cin.fail() || n < 0 || n > max || cin.peek() != '\n') {
             cin.clear();
             clear();
             cout << "Ошибка! Некорректный ввод!" << endl;
@@ -29,25 +30,24 @@ int checkingInput(int max) {
 string checkingString() {
     string str;
 
-    bool haveSpace = false;
-
-    while(true) {
-
+    while (true) {
         getline(cin, str);
-        haveSpace = false;
 
+        bool valid = true;
         for (char c : str) {
-            if (isspace(c)) {
-                haveSpace = true;
+            if (isspace(c) || !((c >= 'А' && c <= 'Я') || (c >= 'а' && c <= 'я'))) {
+                valid = false;
+                break;
             }
         }
 
-        if (haveSpace) {
-            cout << "Ошибка! Введите слово без пробелов!" << endl;
+        if (valid) {
+            return str;
         }
-        else return str;
+        else {
+            cout << "Ошибка! Введите слово, содержащее только русские буквы и без пробелов!" << endl;
+        }
     }
-    return str;
 }
 
 

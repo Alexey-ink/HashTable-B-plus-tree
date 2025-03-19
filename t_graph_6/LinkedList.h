@@ -5,19 +5,19 @@
 
 using namespace std;
 
-struct Node {
+struct ListNode {
 
 	string data;
-	Node* next;
+	ListNode* next;
 
-	Node(const string& value) : data(value), next(nullptr) {}
+	ListNode(const string& value) : data(value), next(nullptr) {}
 };
 
 
 class LinkedList {
 
 private: 
-	Node* head;
+	ListNode* head;
 
 
 public: 
@@ -30,6 +30,6 @@ public:
 	void display();
 	void clear();
 
-	Node* getHead() { return head; }
+	ListNode* getHead() { return head; }
 
 };

@@ -2,12 +2,12 @@
 
 
 void LinkedList::insert(const string& value) {
-	Node* newNode = new Node(value);
+	ListNode* newNode = new ListNode(value);
 	if (head == nullptr) {
 		head = newNode;
 	}
 	else {
-		Node* temp = head;
+		ListNode* temp = head;
 		while (temp->next != nullptr) {
 			temp = temp->next;
 		}
@@ -23,7 +23,7 @@ bool LinkedList::remove(const string& value) {
 	}
 
 	if (head->data == value) {
-		Node* temp = head;
+		ListNode* temp = head;
 		head = head->next;
 		delete temp;
 		cout << "Слово успешно удалено! " << endl;
@@ -31,8 +31,8 @@ bool LinkedList::remove(const string& value) {
 	}
 
 
-	Node* current = head;
-	Node* previous = nullptr;
+	ListNode* current = head;
+	ListNode* previous = nullptr;
 
 	while (current != nullptr && current->data != value) {
 		previous = current;
@@ -53,7 +53,7 @@ bool LinkedList::remove(const string& value) {
 
 
 bool LinkedList::search(const string& value) {
-	Node* temp = head;
+	ListNode* temp = head;
 
 	while (temp != nullptr) {
 		if (temp->data == value) {
@@ -66,7 +66,7 @@ bool LinkedList::search(const string& value) {
 }
 
 void LinkedList::display() {
-	Node* temp = head;
+	ListNode* temp = head;
 	while (temp != nullptr) {
 		cout << temp->data; 
 		if (temp->next != nullptr) {
@@ -78,9 +78,9 @@ void LinkedList::display() {
 
 void LinkedList::clear() {
 
-	Node* current = head;
+	ListNode* current = head;
 	while (current != nullptr) {
-		Node* toDelete = current;
+		ListNode* toDelete = current;
 		current = current->next;
 		delete toDelete; 
 	}

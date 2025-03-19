@@ -1,3 +1,23 @@
+# Исключить папки сборки Visual Studio
+x64/
+x86/
+Debug/
+Release/
+bin/
+obj/
+
+# Исключить скомпилированные файлы
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.idb
+*.log
+
+# Исключить временные файлы
+*.tlog/
+*.recipe
+*.enc
+
+# Исключить папку .vs
 .vs/
-*.vsidx
-*.vscode
