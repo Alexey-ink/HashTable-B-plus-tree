@@ -1,0 +1,1447 @@
+\documentclass[11pt,a4paper,final]{article} %draft
+
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+
+\usepackage[final]{pdfpages}
+
+\usepackage{textcomp,enumitem}
+
+\usepackage{amsmath,amsthm,amssymb}
+
+\usepackage{fancyhdr} % для настройки страницы и колонтитулов
+
+\usepackage{graphicx}
+
+\usepackage{indentfirst} % автоматический отступ в начале каждого раздела
+
+\usepackage[unicode, pdftex, colorlinks, urlcolor=blue]{hyperref}
+
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingo ffset=0cm]{geometry}
+
+\linespread{1.3} % устанавливает междустрочный интервал
+\setlength{\lineskip}{1pt}
+
+\pagestyle{plain} % для отображения номеров внизу 
+
+\usepackage{float}
+
+\usepackage{listings} 
+
+\usepackage{pdflscape}
+\usepackage{listings} 
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+
+\lstset{
+backgroundcolor=\color{white},  % Устанавливаем белый фон для блока кода
+basicstyle=\ttfamily\small\fontfamily{inconsolata}\selectfont,  % Основной стиль текста: моноширинный шрифт Inconsolata с небольшим размером
+commentstyle=\color{darkgreen}\slshape,  % Комментарии будут зелеными и курсивными
+keywordstyle=\color{blue}\bfseries,  % Ключевые слова выделяются синим цветом и полужирным шрифтом
+numberstyle=\scriptsize\color{gray},  % Стиль нумерации строк: маленький размер шрифта и серый цвет
+stringstyle=\color{orange},  % Строки (текст в кавычках) отображаются оранжевым цветом
+breakatwhitespace=false,  % Не прерывать строки только по пробелам
+breaklines=true,  % Автоматический перенос длинных строк
+postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}}, % Символ переноса строки
+captionpos=b,  % Позиция заголовка/описания для блока кода — внизу (b — bottom)
+keepspaces=true,  % Сохранить пробелы, как они есть, в исходном коде
+numbers=left,  % Нумерация строк будет отображаться слева
+numbersep=5pt,  % Отступ между строками кода и номерами строк (4pt)
+showspaces=false,  % Не показывать пробелы
+showstringspaces=false,  % Не показывать пробелы внутри строк
+showtabs=false,  % Не показывать символы табуляции
+tabsize=4,  % Размер табуляции — 4 пробела
+language=c++,  % Указываем язык программирования для синтаксического подсветки
+captionpos=t,  % Заголовок кода будет размещен вверху (t — top)
+xleftmargin=0mm,  % Убираем отступ слева
+frame=single,  % Однотонная рамка вокруг блока кода
+framerule=0.25mm,  % Толщина рамки — 0.25 мм
+literate=
+{а}{{\selectfont\char224}}1
+{б}{{\selectfont\char225}}1
+{в}{{\selectfont\char226}}1
+{г}{{\selectfont\char227}}1
+{д}{{\selectfont\char228}}1
+{е}{{\selectfont\char229}}1
+{ж}{{\selectfont\char230}}1
+{з}{{\selectfont\char231}}1
+{и}{{\selectfont\char232}}1
+{й}{{\selectfont\char233}}1
+{к}{{\selectfont\char234}}1
+{л}{{\selectfont\char235}}1
+{м}{{\selectfont\char236}}1
+{н}{{\selectfont\char237}}1
+{о}{{\selectfont\char238}}1
+{п}{{\selectfont\char239}}1
+{р}{{\selectfont\char240}}1
+{с}{{\selectfont\char241}}1
+{т}{{\selectfont\char242}}1
+{у}{{\selectfont\char243}}1
+{ф}{{\selectfont\char244}}1
+{х}{{\selectfont\char245}}1
+{ц}{{\selectfont\char246}}1
+{ч}{{\selectfont\char247}}1
+{ш}{{\selectfont\char248}}1
+{щ}{{\selectfont\char249}}1
+{ъ}{{\selectfont\char250}}1
+{ы}{{\selectfont\char251}}1
+{ь}{{\selectfont\char252}}1
+{э}{{\selectfont\char253}}1
+{ю}{{\selectfont\char254}}1
+{я}{{\selectfont\char255}}1
+{А}{{\selectfont\char192}}1
+{Б}{{\selectfont\char193}}1
+{В}{{\selectfont\char194}}1
+{Г}{{\selectfont\char195}}1
+{Д}{{\selectfont\char196}}1
+{Е}{{\selectfont\char197}}1
+{Ж}{{\selectfont\char198}}1
+{З}{{\selectfont\char199}}1
+{И}{{\selectfont\char200}}1
+{Й}{{\selectfont\char201}}1
+{К}{{\selectfont\char202}}1
+{Л}{{\selectfont\char203}}1
+{М}{{\selectfont\char204}}1
+{Н}{{\selectfont\char205}}1
+{О}{{\selectfont\char206}}1
+{П}{{\selectfont\char207}}1
+{Р}{{\selectfont\char208}}1
+{С}{{\selectfont\char209}}1
+{Т}{{\selectfont\char210}}1
+{У}{{\selectfont\char211}}1
+{Ф}{{\selectfont\char212}}1
+{Х}{{\selectfont\char213}}1
+{Ц}{{\selectfont\char214}}1
+{Ч}{{\selectfont\char215}}1
+{Ш}{{\selectfont\char216}}1
+{Щ}{{\selectfont\char217}}1
+{Ъ}{{\selectfont\char218}}1
+{Ы}{{\selectfont\char219}}1
+{Ь}{{\selectfont\char220}}1
+{Э}{{\selectfont\char221}}1
+{Ю}{{\selectfont\char222}}1
+{Я}{{\selectfont\char223}}1,
+numbers=left, % пронумеровать строки с левой стороны
+breaklines=true % разрешает автоматический перенос строк
+}
+
+\hypersetup{
+colorlinks=true, % делает ссылки цветными вместо рамки
+linkcolor=blue, % цвет внутренних ссылок
+urlcolor=blue, % цвет внешних ссылок
+citecolor=blue % цвет ссылок на литературу в тексте
+}
+\textheight=24cm 
+\textwidth=16cm
+\oddsidemargin=0pt 
+\topmargin=-1.5cm
+\parindent=24pt 
+\parskip=0pt 
+\tolerance=2000 
+\flushbottom 
+
+%\usepackage[font=scriptsize]{caption}
+\usepackage[labelsep=period]{caption}
+
+\usepackage{amsmath}
+\usepackage{multirow} 
+\usepackage{tabularx}
+\usepackage{titlesec}
+
+\setlength{\parindent}{0pt} % Убираем отступы перед абзацами
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{center}
+	{\Large МИНОБРНАУКИ РОССИИ}\\
+	~\\
+	{\large ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ АВТОНОМНОЕ \\ ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ ВЫСШЕГО ОБРАЗОВАНИЯ}\\
+	~\\
+	{\Large \bf <<САНКТ-ПЕТЕРБУРГСКИЙ ПОЛИТЕХНИЧЕСКИЙ УНИВЕРСИТЕТ ПЕТРА ВЕЛИКОГО>>}\\
+	~\\
+	{\large Институт компьютерных наук и кибербезопасности }\\
+	{\large Высшая школа технологий искусственного интеллекта}\\
+	{\large Направление 02.03.01 Математика и компьютерные науки}\\
+	~\\
+	~\\
+	~\\
+	~\\
+	{\Large \bf  Отчет по лабораторной работе № 1} \\
+	{\Large по дисциплине} \\ {\Large <<Тестирование программного обеспечения>>}\\
+	\vspace{3mm}
+	{\Large \bf Инспекция кода}
+	~\\
+	~\\
+	~\\
+	~\\
+	~\\
+	~\\
+	{\large Обучающийся: \underline{\hspace{3.5cm}} \hspace{12mm} Шихалев А.О.}\\
+	~\\
+	{\large Преподаватель: \underline{\hspace{3.5cm}} \hspace{12mm} Курочкин М.А.}\\
+	~\\
+	~\\
+	~\\
+	~\\
+	~\\
+\end{center}
+\begin{flushright}
+	
+	«\underline{\hspace{1cm}}»\underline{\hspace{3cm}}20\underline{\hspace{0.7cm}}г.
+\end{flushright}
+~\\
+~\\
+\begin{center}
+	{\large Санкт-Петербург, 2025}
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+\section* {Введение}
+\addcontentsline{toc}{section}{Введение}
+В разработке программного обеспечения, помимо основной задачи — реализовать заявленную в спецификации функциональность, существует не менее важная задача — обеспечить качество разработанного решения. 
+
+\textbf{Тестирование программного обеспечения} — это проверка соответствия между реальным и ожидаемым поведением программы, осуществляемая на конечном наборе тестов.
+
+На практике ни один метод тестирования не может выявить все ошибки в программе. Это связано с тем, что ресурсы проекта (деньги, время, персонал), в том числе и на тестирование, ограничены. Однако правильно проведенное тестирование позволяет обнаружить большинство ошибок, что позволяет их оперативно исправить и тем самым повысить качество программного обеспечения.
+
+В данной лабораторной работе используется ручное тестирование — процесс проверки программного обеспечения, выполняемый специалистами без использования каких-либо специальных автоматизированных средств.
+
+Ручное тестирование применяется не вместо компьютерного тестирования, а вместе с ним, что позволяет выявить ошибки в программе на более ранних стадиях.
+
+\newpage
+\section{Постановка задачи}
+
+\noindent
+Требуется: провести инспекцию кода, выступая в роли разработчика программы. \\
+Для выполнения данной задачи необходимо:
+
+\begin{itemize}
+	\item Изучить методы ручного тестирования;
+	\item Провести инспекцию кода, проанализировать ее результаты;
+	\item Исправить программу в соответствии с рекомендациями специалиста по тестированию.
+\end{itemize}
+
+
+\newpage
+\section{Описание методов инспекции кода}
+
+\noindent
+Существуют три основных метода ручного тестирования:
+\vspace{-2pt}
+\begin{itemize}
+	\setlength{\itemsep}{-5pt}
+	\item инспекция кода;
+	\item сквозной просмотр;
+	\item тестирование удобства использования.
+\end{itemize}
+
+\noindent
+Эти методы могут применяться на любой стадии разработки ПО, как к отдельным готовым модулям или блокам, так и к приложению в целом. \\
+Инспекция и сквозной просмотр включают в себя чтение или визуальную проверку исходного кода программы группой лиц. Оба метода предполагают выполнение определенной подготовительной работы. Завершающим этапом является обмен мнениями между участниками проверки на специальном заседании. Цель такого заседания — нахождение ошибок, но не их устранение (т.е. тестирование, а не отладка).
+
+\subsection{Инспекция кода}
+
+\textit{Инспекция кода} — это набор процедур и методик обнаружения ошибок путем анализа (чтения) кода группой специалистов.
+
+\subsubsection{Группа инспектирования кода}
+Обычно в состав группы входят четыре человека, один из которых играет роль \textit{координатора}. Координатор должен быть квалифицированным программистом, но не автором тестируемой программы, детальное знание которой от него не требуется. Вторым участником группы является программист, а остальными — проектировщик программы (если это не сам программист) и специалист по тестированию.
+
+В рамках выполнения лабораторной работы в инспекции кода участвовало всего три человека: программист, специалист по тестированию и координатор.
+
+\subsubsection{Человеческий фактор}
+Если программист воспринимает инспектирование своей программы как деятельность, направленную против него лично, и занимает оборонительную позицию, то процесс инспектирования не будет эффективным. Программист должен оставить самолюбие в стороне и рассматривать инспекцию только в позитивном и конструктивном ключе, не забывая о том, что целью инспекции является нахождение ошибок и, следовательно, улучшение качества программы.
+
+\subsection{Сквозной просмотр}
+Тестирование программы методом сквозного просмотра также как и в инспекции кода включает в себя проверку программного кода группой лиц.
+
+При сквозном просмотре код проверяется группой разработчиков (оптимально — 3-4 человека), лишь один из которых является автором программы. Таким образом, большую часть программы тестирует не ее создатель, а другие члены команды разработчиков, что согласуется со вторым принципом, согласно которому тестирование программистом собственной программы редко бывает эффективным.
+
+Преимуществом сквозных просмотров, снижающим стоимость отладки (исправления ошибок), является возможность точной \textit{локализации ошибки}. Кроме того, в процессе сквозного просмотра обычно удается выявить целую группу ошибок, которые впоследствии можно устранить все вместе. При тестировании программы на компьютере обычно проявляются лишь признаки ошибок (например, программа не может корректно завершиться или выводит бессмысленные результаты), а сами они обнаруживаются и устраняются по отдельности.
+
+\subsection{Проверка за столом}
+Метод ручного тестирования «проверка за столом» может рассматриваться как инспекция или сквозной просмотр кода, выполняемые \textit{одним человеком}, который вычитывает код программы, проверяет его, руководствуясь контрольным списком ошибок, и (или) прогоняет через логику программы тестовые данные.
+
+Для большинства людей проверка за столом является относительно непродуктивной. Это объясняется прежде всего тем, что такая проверка представляет собой полностью неупорядоченный процесс. Вторая, более важная причина заключается в том, что проверка за столом вступает в противоречие со \textit{вторым принципом тестирования}, согласно которому тестирование программистом собственных программ обычно оказывается неэффективным. Следовательно, оптимальный вариант состоит в том, чтобы такую проверку выполнял человек, не являющийся автором программы (например, два программиста могут обмениваться программами для взаимной проверки, а не проверять собственные программы), но даже в этом случае такая проверка \textit{менее эффективна}, чем сквозные просмотры или инспекции. В основном именно по этой причине лучше, чтобы сквозные просмотры или инспекции осуществлялись в группе.
+
+\subsection{Рецензирование}
+\textit{Рецензирование — это} процедура анонимной оценки общих характеристик качества, обслуживаемости, расширяемости, удобства использования и ясности программного обеспечения. \textit{Цель} данного метода — предоставить программисту возможность получить стороннюю оценку результатов своего труда.
+
+Общее руководство процессом осуществляет \textit{администратор}, выбираемый из числа программистов. В свою очередь, администратор отбирает в группу рецензентов от 6 до 20 участников (6 — это необходимый минимум, обеспечивающий анонимность оценок). Предполагается, что все участники специализируются в одной области. Каждый из участников предоставляет для рецензирования две своих программы, одну из которых он считает наилучшей, а вторую — наихудшей по качеству.
+
+Когда будут собраны все программы, их распределяют случайным образом между участниками. Каждому участнику дают для рецензирования четыре программы. Две из них относятся к категории «наилучших», а две — к категории «наихудших» программ, но рецензенту не сообщают, какой именно является каждая из них. Любой участник тратит на просмотр одной программы 30 минут и заполняет ее оценочную анкету. После просмотра всех четырех программ рецензент оценивает их относительное качество.
+
+Рецензента также просят предоставить свои замечания к программе и дать рекомендации по ее улучшению.
+
+После просмотра всех программ каждому участнику передают анкеты с оценками двух его программ. Кроме того, участники получают \textit{статистическую сводку}, отражающую общие и детализированные данные о рейтинге их собственных программ среди всего набора, а также анализ того, насколько оценки, данные участником чужим программам, близки к оценкам тех же программ со стороны других рецензентов.
+
+
+\newpage
+\section{Описание тестируемой программы}
+
+\subsection{Формальное описание}
+\textbf{Название программы:} Словарь на основе хэш-таблицы.
+
+\textbf{Дано:} Слово, введенное пользователем и номер команды для выполнения операций.
+
+\textbf{Требуется:} Реализовать хэш-таблицу, поддерживающую следующие операции: 
+\begin{enumerate}[itemsep=-1pt] 
+	\item Добавление слова в словарь.
+	\item Удаление слова из словаря.
+	\item Вывод на экран всего словаря.
+	\item Поиск слова в словаре.
+	\item Вставка слова из файла.
+	\item Очистка всего словаря.
+\end{enumerate}
+
+\textbf{Ограничения:} 
+\begin{enumerate}[itemsep=-1pt] 
+	\item Номер команды в меню, введенный пользователем должен лежать в диапазоне от 0 до 6 включительно.
+	\item Слово, которое может быть добавлено в словарь, должно быть обязательно состоять из символов кириллицы.
+\end{enumerate}
+
+\textbf{Спецификация:}
+
+\begin{tabularx}{\textwidth}{|p{0.5cm}|p{1.88cm}|p{2.7cm}|p{3.5cm}|X|} % \textwidth - ширина таблицы равна ширине листа
+	\hline
+	\textbf{№} & \multicolumn{2}{c|}{{\large \textbf{Входные данные}}} & \multirow{2}{\linewidth}{{\large \textbf{Результат работы программы}}} & {\large \textbf{Комментарий}} \\
+	
+	\cline{2-3}
+	&\textbf{ Команда} & \textbf{Слово \newline (прочерк – отсутствие значения)} & & \\
+	
+	\hline
+	\textbf{1} & 1 & - & Словарь пуст. & Поскольку мы только запустили программу и слов не добавляли – следовательно, словарь пуст. \\
+	\hline
+	\textbf{2} & 2 & - & Слова из текстового файла были успешно добавлены в хэш-таблицу. & После добавления всех слов из текстового файла выводится весь словарь на экран. \\
+	\hline
+\end{tabularx}
+\newpage
+
+\begin{tabularx}{\textwidth}{|p{0.5cm}|p{1.88cm}|p{2.7cm}|p{3.5cm}|X|} % \textwidth - ширина таблицы равна ширине листа
+	\hline
+	\textbf{№} & \multicolumn{2}{c|}{{\large \textbf{Входные данные}}} & \multirow{2}{\linewidth}{{\large \textbf{Результат работы программы}}} & {\large \textbf{Комментарий}} \\
+	
+	\cline{2-3}
+	&\textbf{ Команда} & \textbf{Слово \newline (прочерк – отсутствие значения)} & & \\
+	
+	\hline
+	\textbf{3} & add & -- & Вывод ошибки о некорректном вводе на экран. & На консоль выведется сообщение о некорректном вводе команды меню. \\
+	
+	\hline
+	\textbf{4} & 3 & ``hello'' & Вывод ошибки на экран. & Слово не добавится в словарь, так как слово не состоит из символов кириллицы. \\
+	\hline
+	\textbf{5} & 3 & “привет” & Слово успешно добавлено в словарь. & Поскольку слово состоит только из кириллицы, оно успешно добавляется в словарь. \\
+	\hline
+	\textbf{6} & 3 & “привет мир” & Вывод ошибки на экран. & Слово не добавится в словарь, поскольку содержит пробелы. \\
+	\hline
+	\textbf{7} & 3 & “” & Добавление прошло успешно & В процессе инспекции кода выявилось отсутствие проверки введенного пользователем слова на пустую строку. \\
+	\hline
+	\textbf{8} & 4 & “привет” & Вывод индекса бакета слова. & Поскольку слово присутствует в словаре, программа выводит соответствующее сообщение и индекс бакета, в котором это слово находится. \\
+	\hline
+	\textbf{9} & 5 & “привет” & Вывод об успешном удалении слова. & Слово успешно удаляется из словаря, если оно присутствует в нем. \\
+	\hline
+	\textbf{10} & 6 & - & Словарь очищается. & Все слова полностью удаляются из словаря. \\
+	\hline  
+	\textbf{11} & 0 & - & Выход из программы. & Программа завершает свою работу. \\
+	\hline
+\end{tabularx}
+
+\newpage
+\subsection{Исходный код программы}
+
+\subsubsection*{HashTable.h}
+\begin{lstlisting}
+#pragma once
+#include <vector>
+#include <fstream> 
+#include <sstream>
+#include <algorithm>
+#include <cctype>
+
+#include "LinkedList.h"
+
+using namespace std;
+
+class HashTable {
+	
+	private: 
+	LinkedList* table;
+	
+	int total_buckets;
+	int total_elements = 0;
+	double fillability;
+	
+	public:
+	
+	HashTable(int size);
+	void displayHashTable();
+	void insert(const string& key);
+	void remove(const string& key);
+	int search(const string& key);
+	unsigned int hashFunction(const string& key);
+	void insertFromFile(const string& filename);
+	void rehash();
+	void clear();
+	int getCount();
+	
+	~HashTable();
+	
+};
+	
+\end{lstlisting}
+\subsubsection*{HashTable.cpp}
+
+\begin{lstlisting}
+#include "HashTable.h"
+#include <locale>
+
+bool isAlphaNum(char c) {
+	
+	if (std::isalnum(static_cast<unsigned char>(c))) {
+		return true;
+	}
+	
+	return (c >= 'А' && c <= 'Я') || (c >= 'а' && c <= 'я');
+}
+
+
+HashTable::HashTable(int size) {
+	total_buckets = size;
+	table = new LinkedList[total_buckets];
+}
+
+void HashTable::insert(const string& key) {
+	
+	int index = hashFunction(key);
+	
+	if (search(key) == -1) {
+		
+		table[index].insert(key);
+		total_elements++;
+		fillability = static_cast<double>(total_elements) / static_cast<double>(total_buckets);
+	}
+	
+	if (fillability >= 0.9) {
+		rehash();
+	}
+}
+
+void HashTable::remove(const string& key) {
+	
+	int index = hashFunction(key);
+	if (table[index].remove(key)) {
+		total_elements--;
+		fillability = static_cast<double>(total_elements) / static_cast<double>(total_buckets);
+	}
+	
+	else cout << "\n Элемент не найден! " << endl;
+}
+
+int HashTable::search(const string& key) {
+	
+	int index = hashFunction(key);
+	if (table[index].search(key)) return index;
+	else return -1;
+	
+}
+
+
+void HashTable::displayHashTable() {
+	cout << endl;
+	
+	if (total_elements == 0) {
+		cout << "Хэш-таблица пуста!" << endl;
+	}
+	else {
+		for (int i = 0; i < total_buckets; i++) {
+			cout << "[" << i << "]: ";
+			table[i].display();
+			cout << endl;
+		}
+	}
+}
+
+
+HashTable::~HashTable() {
+	delete[] table;
+}
+
+
+unsigned int HashTable::hashFunction(const string& key) {
+	
+	unsigned int hash_value = 0;
+	int a = 33; // основание полинома
+	
+	for (char c : key) {
+		hash_value = (hash_value * a + static_cast<unsigned int>(c)) % total_buckets;
+	}
+	
+	return hash_value;
+}
+
+
+void HashTable::insertFromFile(const string& filename) {
+	
+	ifstream file(filename);
+	
+	if (!file.is_open()) {
+		cout << "Ошибка! Не удалось открыть файл!" << filename << endl;
+		return;
+	}
+	
+	string line, word;
+	while (getline(file, line)) {
+		
+		stringstream ss(line);
+		
+		while (ss >> word) {
+			
+			transform(word.begin(), word.end(), word.begin(), ::tolower);
+			word.erase(remove_if(word.begin(), word.end(), [](char c) {
+				return !isAlphaNum(c);
+			}), word.end());
+			
+			if (!word.empty()) { 
+				insert(word);
+				// cout << "Добавили " << word << endl;
+			}
+		}
+		
+	}
+	
+	cout << "Слова успешно добавлены! " << endl << endl;
+	
+	// cout << "Количество элементов: " << total_elements << endl;
+	// cout << "Коэф. заполняемости хэш-таблицы: " << fillability << endl;
+}
+
+
+void HashTable::rehash() {
+	
+	// cout << "Пересоздаем таблицу..." << endl;
+	
+	int old_buckets = total_buckets;
+	
+	total_buckets *= 2;
+	
+	LinkedList* old_table = table; 
+	table = new LinkedList[total_buckets];
+	total_elements = 0;
+	
+	for (int i = 0; i < old_buckets; i++) {
+		
+		ListNode* temp = old_table[i].getHead();
+		
+		while (temp != nullptr) {
+			insert(temp->data);
+			temp = temp->next;
+		}
+		
+	}
+	
+	delete[] old_table;
+	
+}
+
+void HashTable::clear() {
+	
+	for (int i = 0; i < total_buckets; i++) {
+		table[i].clear();
+	}
+	
+	total_elements = 0;
+	fillability = 0.0;
+	
+	cout << "Хэш-таблица полностью очищена!" << endl;
+	
+}
+
+int HashTable::getCount() {
+	return total_elements;
+}
+
+
+\end{lstlisting}
+
+\subsubsection*{main.cpp}
+
+\begin{lstlisting}
+#include <iostream>
+#include <algorithm>
+#include <cctype> 
+#include <locale>
+#include <windows.h>
+
+#include "HashTable.h"
+#include "B-plus-tree.h"
+#include "check.h"
+
+
+using namespace std;
+
+int main() {
+	
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	setlocale(LC_ALL, "Russian");
+	
+	
+	HashTable myHashTable(10);
+	Bplus myTree(2);
+	
+	while (true) {
+		
+		cout << endl << " Хэш-таблица\n";
+		
+		cout << "\n  1. Вывести словарь на экран \n";
+		cout << "  2. Дополнить словарь из текстового файла \n";
+		cout << "  3. Добавить новое слово в словарь \n";
+		cout << "  4. Поиск слова в словаре \n";
+		cout << "  5. Удалить слово из словаря \n";
+		cout << "  6. Очистить словарь \n";
+		
+		cout << "  0. Выход из программы\n";
+		
+		cout << "\n Выберите действие: ";
+		
+		int b = checkingInput(6);
+		string word;
+		bool flag;
+		int index;
+		
+		switch (b) {
+			
+			case 1:
+			
+			myHashTable.displayHashTable();
+			cout << endl << "Количество слов в словаре: " << myHashTable.getCount() << endl;
+			break;
+			
+			case 2:
+			
+			myHashTable.insertFromFile("story.txt");
+			break;
+			
+			case 3:
+			cout << "Введите слово (без пробелов), которое хотите добавить: " << endl;
+			clear();
+			word = checkingString();
+			transform(word.begin(), word.end(), word.begin(), ::tolower);
+			
+			index = myHashTable.search(word);
+			if (index != -1) {
+				cout << "Слово уже есть в словаре!" << endl;
+			}
+			else {
+				myHashTable.insert(word);
+				cout << "Слово успешно добавлено! " << endl;
+				
+			}
+			
+			break;
+			
+			case 4:
+			
+			cout << "Введите слово, которое хотите найти: " << endl;
+			clear();
+			word = checkingString();
+			transform(word.begin(), word.end(), word.begin(), ::tolower);
+			
+			index = myHashTable.search(word);
+			if (index != -1) {
+				cout << "Слово " << word << " присутствует в словаре! " << endl;
+				cout << "Индекс бакета: " << index << endl << endl;
+			}
+			else cout << "Слово " << word << " отсутствует в словаре! " << endl << endl;
+			
+			break;
+			
+			case 5:
+			
+			cout << "Введите слово, которое хотите удалить: " << endl;
+			clear();
+			word = checkingString();
+			transform(word.begin(), word.end(), word.begin(), ::tolower);
+			
+			myHashTable.remove(word);
+			break;
+			
+			case 6:
+			myHashTable.clear();
+			break;
+			
+			case 0:
+			return 0;
+			
+			default:
+			cout << "Ошибка!";
+		}
+	}
+	return 0;
+}
+
+\end{lstlisting}
+
+
+\newpage
+\section{Описание проведенной инспекции кода}
+
+В заседании участвовали следующие люди: 
+\begin{itemize}
+	\item программист, разработчик программы: Шихалев Алексей;
+	\item специалист по тестированию: Кондраев Дмитрий;
+	\item секретарь: Тищенко Артем.
+\end{itemize}
+
+В начале заседания программистом была описана логика программы и представлена ее спецификация. В процессе инспекции были заданы вопросы (32 шт.) с целью выявления несоответствий спецификации. Программист, разработчик программы, ответил на вопросы и получил обратную связь от специалиста по тестированию. Секретарем был составлен протокол заседания с записанными вопросами и ответами на них, а также рекомендации по исправлению несоответствий. Далее представлены заданные вопросы и ответы на них.
+
+
+\subsection{Протокол заседания}
+
+\begin{enumerate}
+	\item Программа реализует словарь на основе хэш-таблицы?
+	
+	\textbf{Ответ:} Да.
+	
+	\item На каком языке написана программа?
+	
+	\textbf{Ответ:} C++.
+	
+	\item Какие типы переменных используются?
+	
+	\textbf{Ответ:} HashTable, LinkedList, bool, int, double, char, string.
+		
+	\item Все ли переменные объявлены?
+	
+	\textbf{Ответ:} Да.
+	
+	\item Используются ли переменные с неинициализированными значениями?
+	
+	\textbf{Ответ:} Нет, не используются, но есть одна переменная fillability, поле класса HashTable, которая не инициализируется в конструкторе, а только при добавлении слова.
+	
+	\textbf{Замечание:} Следует ее инициализовать в конструкторе.
+	
+	\item Выходят ли индексы за границы массива в хэш-таблице?
+	
+	\textbf{Ответ:} Нет.
+	
+	\item Используются ли нецелочисленные индексы?
+	
+	\textbf{Ответ:} Нет, не используются.
+	
+	\item Есть ли ``висячие'' ссылки?
+	
+	\textbf{Ответ:} Нет.
+	
+	\item Корректно ли используются атрибуты памяти, адресуемой с помощью ссылок и указателей?
+	
+	\textbf{Ответ:} Да.
+	
+	\item Корректно ли названы все методы и переменные?
+	
+	\textbf{Ответ:} Да, кроме переменной b, отвечающей за номер команды меню, введенной пользователем.
+	
+	\textbf{Замечание:} Следует более осмысленно назвать переменные.
+	
+	\item Корректно ли используются операторы сравнения?
+	
+	\textbf{Ответ:} Нет, не совсем. 
+	
+	\textbf{Замечание:}	Согласно условию Йоды, при использовании оператора сравнения ``=='', слева от оператора пишется константный член выражения. Такой стиль призван предотвратить свойственную данным языкам ошибку — использование операции присваивания ``='' вместо сравнения ``==''.
+	
+	\item Корректно ли используются булевы выражения? 
+	
+	\textbf{Ответ:} Да.
+	
+	\item Есть ли в программе ``магические'' числа?
+	
+	\textbf{Ответ:} Да.
+	
+	\textbf{Замечание:} Следует вынести их в константы.
+	
+	\item Правильно ли инициализированы массивы и строки?
+	
+	\textbf{Ответ:} Да.
+	
+	\item Соблюдены ли правила наследования объектов?
+	
+	\textbf{Ответ:} Наследование не используется.
+	
+	\item Может ли какая-нибудь переменная типа int переполняться?
+	
+	\textbf{Ответ:} Теоретически да, если добавить слишком много слов, переменная total\_elements может переполниться.
+	
+	\textbf{Замечание:} Стоит установить ограничение на максимальное количество добавляемых слов.
+	
+	\item  Присутствуют ли в программе потенциально бесконечные циклы?
+	
+	\textbf{Ответ:} Нет.
+ 
+ 	\item Проверяется ли введенное слово на пустую строку? 
+ 
+	\textbf{Ответ:} Нет, не проверяется.
+
+	\textbf{Замечание:} Стоит добавить проверку на пустую строку.
+	
+	\item Осуществляется ли проверка корректности входных данных? 
+	
+	\textbf{Ответ:} Да.
+	
+	\item Используются ли файлы для ввода-вывода?
+	
+	\textbf{Ответ:} Да, для считывания и добавления слов в словарь из предоставленного текста в файле формата .txt
+	
+	\item Правильно ли заданы атрибуты файлов?
+	
+	\textbf{Ответ:} Да. 
+	
+	\item Корректно ли обрабатываются признаки конца файла?
+	
+	\textbf{Ответ:} Да. 
+	
+	\item Открываются ли файлы перед обращением к ним? 
+	
+	\textbf{Ответ:} Да. 
+	
+	\item Закрываются ли файлы после обращения к ним?  
+	
+	\textbf{Ответ:} Да. 
+	
+	\item Обрабатываются ли ошибки ввода вывода? 
+	
+	\textbf{Ответ:} Да. В случае, если файл не найден, выведется ошибка.
+	
+	\item Удаляются ли неиспользуемые переменные из памяти?
+	
+	\textbf{Ответ:} Да, в классах HashTable и LinkedList есть деструкторы.
+	
+	\item Нет ли пропущенных функций?
+	
+	\textbf{Ответ:} Нет. Все функции реализованы.
+	
+	\item Выдаются ли предупреждения при компиляции?
+	
+	\textbf{Ответ:} Нет.
+	
+	\item Выдаются ли ошибки при компиляции?
+	
+	\textbf{Ответ:} Тоже нет.
+	
+	\item Выполняются ли вычисления с присваиванием несовпадающих типов?
+	
+	\textbf{Ответ:} Нет.
+	
+	\item Есть ли комментарии в программе?
+	
+	\textbf{Ответ:} Да, один-два есть.
+	
+	\textbf{Замечание:} Стоит добавить разъяснительные комментарии.
+	
+	\item Оформлен ли код в соответствии с некоторым регламентом (стандартом оформления)?
+	
+	\textbf{Ответ:} Да, код оформлен в соответствии с регламентом Google C++ Style Guide.
+	
+
+\end{enumerate}
+
+\subsection{Итоги проведения заседания}
+На первом этапе инспекции кода при обсуждении логики программы, разработчиком программы, был получен опыт обнаружения несоответствий спецификации на этапе чтения программного кода специалистом по тестированию. Были получены рекомендации в написании программного кода от специалиста по тестированию, такие как осмысленное название переменных, рекомендация по грамотному использованию операторов сравнения, установка ограничения на добавления слов в словарь, добавление проверки на пустую строку и null, добавление разъяснительных комментариев.
+
+
+\newpage
+\section{Исправление кода программы}
+
+\subsection{Рекомендация: добавить инциализацию переменной fillability в конструктор класса HashTable}
+
+\begin{minipage}[t]{0.48\textwidth}
+	
+\textbf{Исходный вариант кода:}
+\begin{lstlisting}
+HashTable::HashTable(int size) {
+	total_buckets = size;
+	table = new LinkedList[total_buckets];
+}
+\end{lstlisting}
+\end{minipage}
+\hfill % Заполнение пространства между колонками
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Исправленный вариант кода:}
+
+\begin{lstlisting}
+HashTable::HashTable(int size) {
+	total_buckets = size;
+	fillability = 0.0;
+	table = new LinkedList[total_buckets];
+}
+\end{lstlisting}
+\end{minipage}
+
+\subsection{Рекомендация: переименовать переменную b, отвечающую за номер пункта меню}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Исходный вариант кода:}
+\begin{lstlisting}
+int b = checkingInput(12);
+\end{lstlisting}
+\end{minipage}
+\hfill % Заполнение пространства между колонками
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Исправленный вариант кода:}
+
+\begin{lstlisting}
+int menuChoice = checkingInput(12);
+\end{lstlisting}
+\end{minipage}
+
+\subsection{Рекомендация: убрать все ``магические'' числа в программе, вынести их в константы}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Исходный вариант кода:}
+\begin{lstlisting}
+int menuChoice = checkingInput(12);
+\end{lstlisting}
+\end{minipage}
+\hfill % Заполнение пространства между колонками
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Исправленный вариант кода:}
+\begin{lstlisting}
+const int MAX_MENU_ITEMS = 12;
+int menuChoice = checkingInput(MAX_MENU_ITEMS);
+\end{lstlisting}
+\end{minipage}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Исходный вариант кода:}
+\begin{lstlisting}
+void HashTable::insert(const string& key) {
+	int index = hashFunction(key);
+	if (search(key) == -1) {
+		table[index].insert(key);
+		total_elements++;
+		fillability = static_cast<double>(total_elements) / static_cast<double>(total_buckets);
+	}
+	if (fillability >= 0.9) {
+	rehash(); }
+\end{lstlisting}
+\end{minipage}
+\hfill % Заполнение пространства между колонками
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Исправленный вариант кода:}
+\begin{lstlisting}
+static const int NOT_FOUND = -1;
+static const double REHASH_THRESHOLD;
+
+void HashTable::insert(const string& key) {
+	int index = hashFunction(key);
+	if (search(key) == NOT_FOUND) {
+		
+		table[index].insert(key);
+		total_elements++;
+		fillability = static_cast<double>(total_elements) /
+\end{lstlisting}
+\end{minipage}
+
+
+\newpage 
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{lstlisting}	
+		 / static_cast<double>(total_buckets); }
+	if (fillability >= REHASH_THRESHOLD) {
+		rehash(); }
+}
+\end{lstlisting}
+\end{minipage}
+
+
+
+
+
+
+
+
+
+
+\subsection{Рекомендация: в местах, где используется оператор сравнения, слева от него записывать константы, чтобы предотвратить ошибку присваивания ``=''}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Исходный вариант кода:}
+\begin{lstlisting}
+if (search(key) == NOT_FOUND) {...}
+\end{lstlisting}
+\end{minipage}
+\hfill % Заполнение пространства между колонками
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Исправленный вариант кода:}
+\begin{lstlisting}
+if (NOT_FOUND == search(key)) {...}
+\end{lstlisting}
+\end{minipage}
+
+
+\subsection{Рекомендация: установить ограничение на максимальное количество добавляемых слов}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Исходный вариант кода:}
+\begin{lstlisting}
+void HashTable::insert(const string& key) {
+	int index = hashFunction(key);
+	if (NOT_FOUND == search(key)) {
+		table[index].insert(key);
+		total_elements++;
+		fillability = static_cast<double>(total_elements) / static_cast<double>(total_buckets);
+	}
+	if (fillability >= REHASH_THRESHOLD) {
+		rehash();
+	}
+}
+\end{lstlisting}
+\end{minipage}
+\hfill % Заполнение пространства между колонками
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Исправленный вариант кода:}
+\begin{lstlisting}
+void HashTable::insert(const string& key) {
+	if (total_elements >= MAX_WORDS) {
+		cout << "Словарь переполнен!\n" << endl;
+		return;
+	}
+	int index = hashFunction(key);
+	if (NOT_FOUND == search(key)) {		
+		table[index].insert(key);
+		total_elements++;
+		fillability = static_cast<double>(total_elements) / static_cast<double>(total_buckets);
+	}
+	if (fillability >= REHASH_THRESHOLD) {
+		rehash(); } }
+\end{lstlisting}
+\end{minipage}
+
+\subsection{Рекомендация: добавить проверку введенного пользователем слова на пустую строку}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Исходный вариант кода:}
+\begin{lstlisting}
+string checkingString() {
+	string str;
+	while (true) {
+		getline(cin, str);
+		bool valid = true;
+		for (char c : str) {
+			if (isspace(c) || !((c >= 'А' && c <= 'Я') || (c >= 'а' && c <= 'я'))) {
+				valid = false;
+				break;
+			}
+		}
+		if (valid) {
+			return str;
+		}
+		else {
+			cout << "Ошибка! Введите слово, содержащее только русские буквы и без пробелов!" << endl;
+		}
+	}
+}
+\end{lstlisting}
+\end{minipage}
+\hfill % Заполнение пространства между колонками
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Исправленный вариант кода:}
+\begin{lstlisting}
+string checkingString() {
+	string str;
+	while (true) {
+		getline(cin, str);		
+		if (str.empty()) {
+			cout << "Ошибка! Введена пустая строка. Пожалуйста, введите слово." << endl;
+			continue; 
+		}	
+		bool valid = true;
+		for (char c : str) {
+			if (isspace(c) || !((c >= 'А' && c <= 'Я') || (c >= 'а' && c <= 'я'))) {
+				valid = false;
+				break;
+			}
+		}	
+		if (valid) {
+			return str;
+		}
+		else {
+			cout << "Ошибка! Введите слово, содержащее только русские буквы и без пробелов!" << endl;
+		}
+	}
+}
+\end{lstlisting}
+\end{minipage}
+
+\newpage
+\subsection{Исправленный код программы}
+\subsubsection*{HashTable.h}
+\begin{lstlisting}
+#pragma once
+#include <vector>
+#include <fstream> 
+#include <sstream>
+#include <algorithm>
+#include <cctype>
+
+#include "LinkedList.h"
+
+using namespace std;
+
+class HashTable {
+	
+	private: 
+	
+	static const int NOT_FOUND = -1;
+	static const double REHASH_THRESHOLD;
+	static const int MAX_WORDS = 10000;
+	
+	LinkedList* table;
+	
+	int total_buckets;
+	int total_elements = 0;
+	double fillability;
+	
+	unsigned int hashFunction(const string& key);
+	
+	public:
+	
+	HashTable(int size);
+	void displayHashTable();
+	void insert(const string& key);
+	void remove(const string& key);
+	int search(const string& key);
+	void insertFromFile(const string& filename);
+	
+	void rehash();
+	void clear();
+	
+	int getCount();
+	
+	~HashTable();
+	
+};
+\end{lstlisting}
+\subsubsection*{HashTable.cpp}
+\begin{lstlisting}
+#include "HashTable.h"
+#include <locale>
+
+bool isAlphaNum(char c) {
+	
+	if (std::isalnum(static_cast<unsigned char>(c))) {
+		return true;
+	}
+	
+	return (c >= 'А' && c <= 'Я') || (c >= 'а' && c <= 'я');
+}
+
+
+HashTable::HashTable(int size) {
+	total_buckets = size;
+	fillability = 0.0;
+	table = new LinkedList[total_buckets];
+}
+
+void HashTable::insert(const string& key) {
+	
+	if (total_elements >= MAX_WORDS) {
+		cout << "Словарь переполнен!\n" << endl;
+		return;
+	}
+	
+	int index = hashFunction(key);
+	
+	if (NOT_FOUND == search(key)) {
+		
+		table[index].insert(key);
+		total_elements++;
+		fillability = static_cast<double>(total_elements) / static_cast<double>(total_buckets);
+	}
+	
+	if (fillability >= REHASH_THRESHOLD) {
+		rehash();
+	}
+}
+
+void HashTable::remove(const string& key) {
+	
+	int index = hashFunction(key);
+	if (table[index].remove(key)) {
+		total_elements--;
+		fillability = static_cast<double>(total_elements) / static_cast<double>(total_buckets);
+	}
+	
+	else cout << "\n Элемент не найден! " << endl;
+}
+
+int HashTable::search(const string& key) {
+	
+	int index = hashFunction(key);
+	if (table[index].search(key)) return index;
+	else return NOT_FOUND;
+	
+}
+
+
+void HashTable::displayHashTable() {
+	cout << endl;
+	
+	if (total_elements == 0) {
+		cout << "Хэш-таблица пуста!" << endl;
+	}
+	else {
+		for (int i = 0; i < total_buckets; i++) {
+			cout << "[" << i << "]: ";
+			table[i].display();
+			cout << endl;
+		}
+	}
+}
+
+
+HashTable::~HashTable() {
+	delete[] table;
+}
+
+
+unsigned int HashTable::hashFunction(const string& key) {
+	
+	unsigned int hash_value = 0;
+	int a = 33; // основание полинома
+	
+	for (char c : key) {
+		hash_value = (hash_value * a + static_cast<unsigned int>(c)) % total_buckets;
+	}
+	
+	return hash_value;
+}
+
+
+void HashTable::insertFromFile(const string& filename) {
+	
+	ifstream file(filename);
+	
+	if (!file.is_open()) {
+		cout << "Ошибка! Не удалось открыть файл!" << filename << endl;
+		return;
+	}
+	
+	string line, word;
+	while (getline(file, line)) {
+		
+		stringstream ss(line);
+		
+		while (ss >> word) {
+			
+			transform(word.begin(), word.end(), word.begin(), ::tolower);
+			word.erase(remove_if(word.begin(), word.end(), [](char c) {
+				return !isAlphaNum(c);
+			}), word.end());
+			
+			if (!word.empty()) { 
+				insert(word);
+				// cout << "Добавили " << word << endl;
+			}
+		}
+		
+	}
+	
+	cout << "Слова успешно добавлены! " << endl << endl;
+	
+	// cout << "Количество элементов: " << total_elements << endl;
+	// cout << "Коэф. заполняемости хэш-таблицы: " << fillability << endl;
+}
+
+
+void HashTable::rehash() {
+	
+	// cout << "Пересоздаем таблицу..." << endl;
+	
+	int old_buckets = total_buckets;
+	
+	total_buckets *= 2;
+	
+	LinkedList* old_table = table; 
+	table = new LinkedList[total_buckets];
+	total_elements = 0;
+	
+	for (int i = 0; i < old_buckets; i++) {
+		
+		ListNode* temp = old_table[i].getHead();
+		
+		while (temp != nullptr) {
+			insert(temp->data);
+			temp = temp->next;
+		}
+		
+	}
+	
+	delete[] old_table;
+	
+}
+
+void HashTable::clear() {
+	
+	for (int i = 0; i < total_buckets; i++) {
+		table[i].clear();
+	}
+	
+	total_elements = 0;
+	fillability = 0.0;
+	
+	cout << "Хэш-таблица полностью очищена!" << endl;
+	
+}
+
+int HashTable::getCount() {
+	return total_elements;
+}
+\end{lstlisting}
+\subsubsection*{main.cpp}
+\begin{lstlisting}
+
+#include <iostream>
+#include <algorithm>
+#include <cctype> 
+#include <locale>
+#include <windows.h>
+
+#include "HashTable.h"
+#include "check.h"
+
+const int MAX_MENU_ITEMS = 6;
+using namespace std;
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	setlocale(LC_ALL, "Russian");
+	HashTable myHashTable(10);
+	
+	while (true) {
+		
+		cout << endl << " Хэш-таблица\n";
+		
+		cout << "\n  1. Вывести словарь на экран \n";
+		cout << "  2. Дополнить словарь из текстового файла \n";
+		cout << "  3. Добавить новое слово в словарь \n";
+		cout << "  4. Поиск слова в словаре \n";
+		cout << "  5. Удалить слово из словаря \n";
+		cout << "  6. Очистить словарь \n";
+		
+		cout << "\n B+ дерево  \n\n";
+		
+		cout << "  7. Вывести словарь на экран \n";
+		cout << "  8. Дополнить словарь из текстового файла \n";
+		cout << "  9. Добавить новое слово в словарь \n";
+		cout << "  10. Поиск слова в словаре \n";
+		cout << "  11. Удалить слово из словаря \n";
+		cout << "  12. Очистить словарь \n";
+		
+		cout << "  0. Выход из программы\n";
+		
+		cout << "\n Выберите действие: ";
+		
+		int menuChoice = checkingInput(MAX_MENU_ITEMS);
+		string word;
+		string path;
+		bool flag;
+		int index;
+		
+		switch (menuChoice) {
+			
+			case 1:
+			
+			myHashTable.displayHashTable();
+			cout << endl << "Количество слов в словаре: " << myHashTable.getCount() << endl;
+			break;
+			
+			case 2:
+			
+			myHashTable.insertFromFile("story.txt");
+			break;
+			
+			case 3:
+			cout << "Введите слово (без пробелов), которое хотите добавить: " << endl;
+			clear();
+			word = checkingString();
+			transform(word.begin(), word.end(), word.begin(), ::tolower);
+			
+			index = myHashTable.search(word);
+			if (index != -1) {
+				cout << "Слово уже есть в словаре!" << endl;
+			}
+			else {
+				myHashTable.insert(word);
+				cout << "Слово успешно добавлено! " << endl;
+				
+			}
+			
+			break;
+			
+			case 4:
+			
+			cout << "Введите слово, которое хотите найти: " << endl;
+			clear();
+			word = checkingString();
+			transform(word.begin(), word.end(), word.begin(), ::tolower);
+			
+			index = myHashTable.search(word);
+			if (index != -1) {
+				cout << "Слово " << word << " присутствует в словаре! " << endl;
+				cout << "Индекс бакета: " << index << endl << endl;
+			}
+			else cout << "Слово " << word << " отсутствует в словаре! " << endl << endl;
+			
+			break;
+			
+			case 5:
+			
+			cout << "Введите слово, которое хотите удалить: " << endl;
+			clear();
+			word = checkingString();
+			transform(word.begin(), word.end(), word.begin(), ::tolower);
+			
+			myHashTable.remove(word);
+			break;
+			
+			case 6:
+			myHashTable.clear();
+			break;
+			
+			case 0:
+			return 0;
+			
+			default:
+			cout << "Ошибка!";
+		}
+		
+		system("pause");
+	}
+	
+	return 0;
+}
+\end{lstlisting}
+
+
+\newpage
+\section*{Вывод}
+\addcontentsline{toc}{section}{Вывод}
+
+В результате проделанной работы программный код был исправлен в соответствии с рекомендациями специалиста по тестированию. Были сделаны личные выводы о том, что ручное тестирование позволяет выявить некорректность как в логике работы программы, так и в стиле её оформления. Был получен опыт процесса инспекции кода.
+
+\newpage
+\section*{Список литературы}
+\addcontentsline{toc}{section}{Список литературы} % Добавляем раздел в содержание
+
+\begin{enumerate}
+	\item Майерс, Г. Искусство тестирования программ / Г. Майерс, Т. Баджетт, К. Сандлер. — Изд. 3-е. — Санкт-Петербург : Диалектика, 2012. — 272 с.
+\end{enumerate}
+
+\end{document}
